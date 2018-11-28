@@ -57,24 +57,25 @@ In this lab, we are going to write a Python program which can generate a network
 We will use Mininet to emulate a complete network of hosts, links, and switches on a single machine. It creates virtual networks using process-based virtualization and network namespaces - features that are available in recent Linux kernels. I shall explain my implementation of the API below.
 * **Importing Libraries**
 
-    * *from mininet.cli import CLI*
+    * *from mininet.cli import CLI*  
     Simple command-line interface to talk to nodes.
-    
-    * *from mininet.net import Mininet*
-    Network emulation with hosts spawned in network namespaces
-    * *from mininet.topo import Topo*
+    * *from mininet.net import Mininet*  
+    Network emulation with hosts spawned in network namespaces.
+    * *from mininet.topo import Topo*  
     Data center network representation for structured multi-trees.
-    * *from mininet.node import OVSController*
+    * *from mininet.node import OVSController*  
     Open vSwitch controller.
-    * *from mininet.link import TCLink*
+    * *from mininet.link import TCLink*  
     Link with symmetric TC interfaces configured via opts.
-    * *from mininet.util import dumpNodeConnections*
+    * *from mininet.util import dumpNodeConnections*  
     Dump connections to/from nodes.
-    * *from mininet.log import setLogLevel*
+    * *from mininet.log import setLogLevel*  
     Setup loglevel. Convenience function to support lowercase names.
 * **Creating network and adding elements**
 I will be using the mid-level API: The mid-level API adds the Mininet object which serves as a container for nodes and links. It provides a number of methods (such as addHost(), addSwitch(), and addLink()) for adding nodes and links to a network, as well as network configuration, startup and shutdown (notably start() and stop().) It is the simplest and most concise compared low-level and high-level, because it doesn't require creation of a topology class.
-    * ```net = Mininet(controller = OVSController,link=TCLink)``` to create mininet with OVSController and utilises TCLink
+    * ```Python
+    net = Mininet(controller = OVSController,link=TCLink)
+    ``` to create mininet with OVSController and utilises TCLink
     * ```h1 = net.addHost('h1')``` to add host
     * ```s1 = net.addSwitch('s1')``` to add switch
     * ```c0 = net.addController('c0')``` to add controller
