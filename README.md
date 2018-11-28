@@ -100,11 +100,11 @@ iPerf3 is a tool for active measurements of the maximum achievable bandwidth on 
 h6 iperf -s -u -i 1 > ./out/result &
 h3 iperf -c 10.0.0.6 -u –i 1
 ```
-iPerf parameters:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*-s*: &nbsp; Run iPerf in server mode
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*-u*: &nbsp; Use UDP rather than TCP
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*-i*: &nbsp; Sets the interval time in seconds between periodic bandwidth, jitter, and loss reports
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*-c*: &nbsp; Run iPerf in client mode, connecting to an iPerf server running on host.
+iPerf parameters:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*-s*: &nbsp; Run iPerf in server mode  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*-u*: &nbsp; Use UDP rather than TCP  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*-i*: &nbsp; Sets the interval time in seconds between periodic bandwidth, jitter, and loss reports  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*-c*: &nbsp; Run iPerf in client mode, connecting to an iPerf server running on host  
 
 Putting them together, the command above means to run iPerf with h6 as server and h3 as client, with UDP protocol, and then to measure and report the various statistics at a 1 second interval. The result from the server is parsed into a file named "result" and placed in the src/out folder.
 ### Tasks
