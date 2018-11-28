@@ -13,9 +13,9 @@ from mininet.log import setLogLevel
 My main function executing all the commands
 '''
 def main():
-	#Initialise net
+	#Initialise mininet with OVSController and TCLink
 	net = Mininet(controller = OVSController,link=TCLink)
-	#create hosts and networks and controller
+	#create hosts and networks
 	c0 = net.addController('C0')
 	h1 = net.addHost('h1')
 	h2 = net.addHost('h2')
@@ -32,7 +32,7 @@ def main():
 	s3 = net.addSwitch('s3')
 	s4 = net.addSwitch('s4')
 	s5 = net.addSwitch('s5')
-	#create links
+	#create links with parameters(node1,node2,bw in Mbit,delay,loss in percentage)
 	net.addLink(s5,s1,bw=40,delay='52us',loss=2)
 	net.addLink(s4,s1,bw=38,delay='76us',loss=4)
 	net.addLink(s3,s1,bw=35,delay='48us',loss=2)
@@ -47,16 +47,16 @@ def main():
 	net.addLink(h4,s3,bw=11,delay='2ms',loss=9)
 	net.addLink(h9,s4,bw=30,delay='7ms',loss=12)
 	net.addLink(h10,s5,bw=25,delay='5ms',loss=10)
-	# Start a network
+	# Start the network
 	net.start()
 	# Test connectivity by trying to have all nodes ping each other
 	print("Testing network connectivity")
 	net.pingAll()
-	# Enter Mininet's CLI mode
-	CLI(net)
 	# Dump Connections
 	dumpNodeConnections(net.hosts)
 	dumpNodeConnections(net.switches)
+	# Enter Mininet's CLI mode
+	CLI(net)
 
 '''
 Main (entry point)
